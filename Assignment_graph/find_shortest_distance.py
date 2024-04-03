@@ -9,7 +9,7 @@ def get_node_distance():
     try:
         sqliteConnection = sqlite3.connect(sqlfile)
         cursor = sqliteConnection.cursor()
-        print("Connected to SQLite")
+        # print("Connected to SQLite")
         sqlite_select_query = """SELECT distance 
                                 FROM ETO;"""
         cursor.execute(sqlite_select_query)
@@ -23,7 +23,7 @@ def get_node_distance():
     finally:
         if sqliteConnection:
             sqliteConnection.close()
-            print("The SQLite connection is closed")
+            # print("The SQLite connection is closed")
             return (distance)
          
 
@@ -34,7 +34,7 @@ def get_node_source():
     try:
         sqliteConnection = sqlite3.connect(sqlfile)
         cursor = sqliteConnection.cursor()
-        print("Connected to SQLite")
+        # print("Connected to SQLite")
         sqlite_select_query = """SELECT from_node 
                                 FROM ETO;"""
         cursor.execute(sqlite_select_query)
@@ -48,7 +48,7 @@ def get_node_source():
     finally:
         if sqliteConnection:
             sqliteConnection.close()
-            print("The SQLite connection is closed")
+            # print("The SQLite connection is closed")
             return (source)
          
 
@@ -58,7 +58,7 @@ def get_node_desination():
     try:
         sqliteConnection = sqlite3.connect(sqlfile)
         cursor = sqliteConnection.cursor()
-        print("Connected to SQLite")
+        # print("Connected to SQLite")
         sqlite_select_query = """SELECT to_node 
                                 FROM ETO;"""
         cursor.execute(sqlite_select_query)
@@ -72,27 +72,23 @@ def get_node_desination():
     finally:
         if sqliteConnection:
             sqliteConnection.close()
-            print("The SQLite connection is closed")
+            # print("The SQLite connection is closed")
             return (desination)
          
-
 desination = get_node_desination()
-
 
 network = nx.Graph()
 
 network.add_nodes_from([1,2,3,4,5,6,7,8])
-print(f"This network has now {network.number_of_nodes()} nodes.")
+# print(f"This network has now {network.number_of_nodes()} nodes.")
 
 # ดึงขอมูลจาก Database มาทำการสร้าง Node
 for s,d,w in zip(source,desination,distance):
    network.add_edge(s, d, weight = w) 
    
-
-color_list = ["gold", "red", "violet", "blue", "green", "purple", "orange", "gray"]
-
-plt.figure(figsize=(8, 6))
-plt.title('Example of Graph Representation', size=10)
+# color_list = ["gold", "red", "violet", "blue", "green", "purple", "orange", "gray"]
+# plt.figure(figsize=(8, 6))
+# plt.title('Example of Graph Representation', size=10)
 
 source = int(input("Enter in your current location information: "))
 target = int(input("Enter the destination information where you want to go: "))
@@ -108,9 +104,11 @@ format_total_weight = f"{total_weight_decimal_shortest_path:.1f}"
 
 print("Shortest Path:", shortest_path)
 print(f"Total Weight (Decimal) in Shortest Path: {format_total_weight} km.")
-print(distance)
+
+# print(distance)
 
 
-nx.draw_networkx(network,node_color=color_list, with_labels=True)
+# nx.draw_networkx(network,node_color=color_list, with_labels=True)
 
-plt.show()
+# plt.show()
+
