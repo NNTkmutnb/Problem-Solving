@@ -111,6 +111,6 @@ print(f"Total Weight (Decimal) in Shortest Path: {format_total_weight} km.")
 print(distance)
 
 
-# nx.draw_networkx(network,node_color=color_list, with_labels=True)
+nx.draw_networkx(network,node_color=color_list, with_labels=True)
 
-# plt.show()
+plt.show()
