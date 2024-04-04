@@ -7,11 +7,11 @@ import del_node
 import marker
 
 
-go_back = 'y'
+# go_back = 'y'
 
 def main():
     
-    while go_back.lower() == 'y':
+    # while go_back.lower() == 'y':
         print('==== โปรแกรมระบบตัวช่วยนำเที่ยวป่านันทนาการน้ำตกเขาอีโต้ ====')
         print('''- กรุณาเลือกหัวข้อที่ต้องการ -
         1. คำนวนหาเส้นทางและระยะทางที่สั้นที่สุด
@@ -26,37 +26,17 @@ def main():
         if select_options == 1:
             find_shortest_distance.find_shortest_comman()
             marker.mapOjp.save("index.html")  
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
         elif select_options == 2:
             insert_marker.insert_marker_comman()
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
         elif select_options == 3:
             insert_node.insert_Node_comman()
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
         elif select_options == 4:
             update_marker.update_marker_comman()
             marker.mapOjp.save("index.html")
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
         elif select_options == 5:
             del_marker.del_marker_comman()  
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
         elif select_options == 6:
             del_node.del_node_comman()
-            user_input = input('คุณต้องการกลับไปยังหน้าแรกหรือไม่ (Y/N): ')
-            if user_input != go_back:
-                break
-        elif select_options == 7:
-            break
         print()
         
 marker.mapOjp.save("index.html")
