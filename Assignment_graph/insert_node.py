@@ -26,9 +26,9 @@ def insert_New_Node(NodeID, from_node, to_node, distance, marker_ID):
             print("sqlite connection is closed")
 
 
-marker_ID = int(input('What node do you want to add: '))
-from_node = int(input('From node: '))
-to_node = int(input('To node: '))
-distanace = float(input('Distance: '))
+marker_ID = int(input('Node ที่คุณต้องการจะเพิ่มระยะทางคือ: '))
+from_node = int(input('จาก Node ที่: '))
+to_node = int(input('ไป Node ที่: '))
+distanace = float(input('ระยะทาง: '))
 
 insert_New_Node(None ,from_node, to_node, distanace, marker_ID)

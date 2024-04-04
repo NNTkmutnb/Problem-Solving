@@ -1,4 +1,5 @@
 import networkx as nx
+import folium
 from folium.plugins import AntPath
 import sqlite3
 import marker
@@ -164,13 +165,12 @@ dictionary_lat_long = dict_lat_long()
 def compare_list_to_dict(data_list, data_dict):
 
     result_list = []
-    a = False
-    b = False
     for item in data_list:
         
         if item in data_dict:
             result_list.append(data_dict[item])
-            
+    # print(result_list)
+             
     return result_list
 
 result = compare_list_to_dict(shortest_path, dictionary_lat_long)
@@ -178,7 +178,11 @@ result = compare_list_to_dict(shortest_path, dictionary_lat_long)
 print("Shortest Path:", shortest_path)
 print(f"Total Weight (Decimal) in Shortest Path: {format_total_weight} km.")
 
-AntPath(result, delay=2000, dash_array=[40,25], color="blue", weight=8).add_to(marker.mapOjp)
+
+
+AntPath(result, popup=folium.Popup(f"""
+                  <h5> ระยะทางรวม {format_total_weight} km.></h5>
+                  """, max_width=500), delay=2000, dash_array=[40,25], color="blue", weight=8).add_to(marker.mapOjp)
 
 marker.mapOjp
 marker.mapOjp.save("index.html")
