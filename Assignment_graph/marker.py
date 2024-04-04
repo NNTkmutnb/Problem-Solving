@@ -198,8 +198,7 @@ def get_marker_link():
             sqliteConnection.close()
             # print("The SQLite connection is closed")
             return (link)
-         
-
+        
 marker_link = get_marker_link()
 
 
@@ -214,6 +213,7 @@ for name, lat, long, discrip, link, color, icon, img in zip(marker_name, latitud
                   <h5>{discrip} <a href="{link}" target="_blank">คลิ๊กที่นี่</a></h5>
                   """, max_width=500), 
     icon=folium.Icon(icon=icon, color=color)).add_to(mapOjp)
+
 
 
 mapOjp
