@@ -3,6 +3,41 @@ import marker
 
 sqlfile = 'ETO_DB.db'
 def insert_Node_comman():
+    def get_marker_name():
+        try:
+            sqliteConnection = sqlite3.connect(sqlfile)
+            cursor = sqliteConnection.cursor()
+            # print("Connected to SQLite")
+            sqlite_select_query = """SELECT marker_ID, marker_name
+                                        FROM marker;"""
+            cursor.execute(sqlite_select_query)
+            record = cursor.fetchall()
+            marker_name  = []
+            for i in record:
+                marker_name.append(i)
+        except sqlite3.Error as error:
+            print("Failed to read single row from sqlite table", error)
+        finally:
+            if sqliteConnection:
+                sqliteConnection.close()
+                # print("The SQLite connection is closed")
+                return (marker_name)
+            
+    marker_name = get_marker_name()
+    # print(marker_name)
+
+    marker_name_list = {}
+
+    for key, value in marker_name:
+        marker_name_list[key] = value
+
+    def marker_list():
+        print('== Marker ทั้งหมดในฐานข้อมูล ==')
+        for i in marker_name_list.items():
+            print(i)
+    
+    marker_list()
+
     def insert_New_Node(NodeID, from_node, to_node, distance, marker_ID):
         try:
             sqliteConnection = sqlite3.connect(sqlfile)
@@ -25,7 +60,6 @@ def insert_Node_comman():
             if sqliteConnection:
                 sqliteConnection.close()
                 print("sqlite connection is closed")
-
 
     marker_ID = int(input('Node ที่คุณต้องการจะเพิ่มระยะทางคือ: '))
     from_node = int(input('จาก Node ที่: '))
