@@ -6,12 +6,8 @@ import del_marker
 import del_node
 import marker
 
-
-# go_back = 'y'
-
 def main():
     
-    # while go_back.lower() == 'y':
         print('==== โปรแกรมระบบตัวช่วยนำเที่ยวป่านันทนาการน้ำตกเขาอีโต้ ====')
         print('''- กรุณาเลือกหัวข้อที่ต้องการ -
         1. คำนวนหาเส้นทางและระยะทางที่สั้นที่สุด
@@ -32,7 +28,6 @@ def main():
             insert_node.insert_Node_comman()
         elif select_options == 4:
             update_marker.update_marker_comman()
-            marker.mapOjp.save("index.html")
         elif select_options == 5:
             del_marker.del_marker_comman()  
         elif select_options == 6:
